@@ -1,0 +1,112 @@
+.header{
+    padding-top: 20.4rem;//le damos este padding top para la separacion de nav de arriba que es estatico
+    @media only screen and (max-width:$bp-small){
+        padding-top: 14.3rem;
+    }
+   &__portada{
+        position: relative;
+        @media only screen and (max-width:$bp-large){
+            background-image: url(../img/portada.jpg);
+            background-position: center;
+            background-size: cover;
+
+        }
+       &--img{
+            display: block;
+            width: 100%;
+            @media only screen and (max-width:$bp-large){
+               display: none;
+            }
+       }
+       &__contenido{
+        
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120rem;
+
+            transform: translate(-50% , -50%);
+            display: flex;
+            @media only screen and (max-width:$bp-extraLarge){
+                width: auto; //se a poner en centro se adapta as su contenedor
+
+            }
+            @media only screen and (max-width:$bp-large){
+                position: static;
+                transform: none; //estamos recuperando el elemento como bloque que ocupe todo el ancho de su contenedor
+                display: flex; 
+                justify-content: center; //para centrar el elemento box
+                padding: 5rem 0;
+            }
+            &__box{
+                color: white;
+                text-align: center;
+                &--t1,
+                &--t2,
+                &--t3{
+                    //font-size: 1.6rem;
+                    text-transform: uppercase;  
+                    font-weight: 700;             
+                }
+                &--t1{
+                    font-size: 1.6rem;
+                    margin-bottom: -.7rem;
+                }
+                &--t2{
+                    font-size: 9rem;
+                    margin-bottom: -4rem;
+                    @media only screen and (max-width:$bp-large){
+                        font-size: 5rem;
+                        margin-bottom: -1rem;
+                    }
+                }
+                &--t3{
+                    font-size: 5rem;
+                    margin-bottom: -.7rem;
+                    @media only screen and (max-width:$bp-large){
+                        font-size: 2rem;
+                        margin-bottom: 0;
+                    }
+                }
+                &--t4{
+                    font-size: 2.5rem;
+                    text-transform: capitalize;
+                    margin-bottom: 1.5rem;
+                    @media only screen and (max-width:$bp-large){
+                        font-size: 1.8rem;
+                    }
+                }
+                &--btn{
+                    background-color: white;
+                    font-size: 1.6rem;
+                    color: $color-secondary;
+                    font-weight: 900;
+                    text-transform: capitalize;
+                    padding: 2rem 3rem 1.7rem 3rem;
+                    border-radius: .5rem;
+                    transition: all .3s; // transicion de salida
+                    &:hover{
+                        background-color: $color-secondary;
+                        color: white;
+                        transition: all .3s; //transicion de entrada
+                    }
+                }
+                
+            }   
+        }
+    }
+    &__ofertas{
+        display: flex;
+        flex-wrap: wrap;
+        img{
+            display: block;
+            width: 25%;
+            @media only screen and (max-width:$bp-large){
+                width: 50%;
+            }
+            @media only screen and (max-width:$bp-small){
+                width: 100%;
+            }
+        }
+    }
+}

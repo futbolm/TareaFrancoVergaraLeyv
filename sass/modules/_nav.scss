@@ -1,0 +1,211 @@
+.nav{
+    position: fixed;//menu este posicionado en la parte de arriba
+    z-index: 1;
+    width: 100%;//ocupe todo el 100% del ancho
+    &__welcome{
+        background-color: #f4f4f4;
+        &__contenedor{
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            align-items: center; //para que el mensaje del saludo este alineado en el centro
+            @media only screen and (max-width:$bp-small){
+                justify-content: center;
+            }
+            &--msj{
+                color:rgb(51,51,51); 
+                @media only screen and (max-width:$bp-small){
+                    display: none; //para ocultarlo
+                }
+            }
+            &__access{
+                &--account{
+                    color:$color-secondary ;
+                    i{
+                        margin-right: .5rem;
+                    }
+                }
+                &--moneda,
+                &--idioma{
+                    border: none;
+                    outline: 0;
+                    cursor: pointer;
+                    background-color: #f4f4f4;
+                    color: $color-secondary;
+                    
+                }
+            }
+        }
+    }
+    &__menu{
+        background-color: white;
+        box-shadow: 0 .1rem 1rem rgb(black, .15); //sombra horizontal para diferenciar del menu de navegacion
+        &__contenedor{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            img{
+                @media only screen and (max-width:$bp-large){
+                    width: 12rem;
+                }
+            }
+            &--iconMenu{
+                font-size: 1.8rem;
+                color: $color-secondary;
+                border: 1px solid $color-secondary;
+                padding: 1rem 1.5rem 0.5rem 1.5rem;
+                border-radius: .5rem;
+                background-color: white;
+                display: none;
+                @media only screen and (max-width:$bp-large){
+                    display: block;
+                    z-index: 2;
+                }
+
+            }
+            &__rigth{
+                display: flex;
+                align-items: center;
+                &__box{
+                    display: flex;
+                    margin-right: 7rem;
+                    //margin-bottom: .7rem;
+                    //align-items: center;
+                    @media only screen and (max-width:$bp-large){
+                       // display: none;
+                       position: absolute;
+                       background-color: rgba(black, .95); //aqui venir y borrar el comentario
+                       top: 0;
+                       left: -100%;
+                       width: 100%;
+                       height:100vh;//se adapta a todo el ancho y alto de cualquier dispositivo
+                        flex-direction: column;
+                        align-items: center;//lo centra de la manera vertical en el eje y
+                        justify-content: center;//lo centra de la manera horizontal en el eje x 
+                        z-index:1 ;
+                        transition: all .3s;
+                        &.active {
+                            left: 0;
+                            transition: all .3s;
+                        }
+                    }
+                    &__item{
+                        list-style: none;
+                        
+                        &--link{
+                            font-size: 1.5rem;
+                            text-transform: uppercase;
+                            color: $color-secondary;
+                            padding: 1rem 1.5rem .6rem 1.5rem;
+                            font-weight: 700;
+                           // display: inline-block;
+                           @media only screen and (max-width:$bp-large){
+                            color: white;
+                            font-size: 2rem;
+                           }
+                        }
+                        
+                    }
+                }
+                &__cart{
+                    background-color: $color-primary;
+                    color: white;
+                    padding: 1.5rem 2.5rem .5rem 2.5rem;
+                    display: flex;
+                    flex-direction: column; //Cuando cambiamos la direccion a columna para centrar su contenido se utiliza align-items
+                    align-items: center;
+                    &--box{
+                        position: relative;
+                        margin-bottom: .7rem;
+                        i{
+                            font-size: 2.5rem;
+                        }
+                        span{
+                            font-size: 1.6rem;
+                            position: absolute;
+                            width: 2.5rem; //para hacer un cuadradito ancho
+                            height: 2.5rem;//alto para el cuadradito
+                            
+                            background-color: $color-secondary;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            top:-1rem;
+                            padding-top: 0.35rem;
+                            right: -2.7rem; 
+                        }
+                    }
+                    &--title{
+                        margin-bottom: -.5rem;
+                    }
+                    &--title,
+                    &--price{
+                        font-size: 1.6rem;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+    &__search{
+        background-color: $color-secondary;
+        @media only screen and (max-width:$bp-small){
+            display: none; //se esconde todo el bloque 3 del navegador osea el input , telefono 
+        }
+        &__contenedor{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &__categoria{
+                background-color: $color-primary;
+                color: white;
+                font-size: 1.4rem;
+                text-transform: uppercase;
+                padding: 2rem 2rem 1.7rem 2rem;
+                font-weight: 600;
+            }
+            &__form{
+                background-color: white;
+                display: flex;
+                align-items: center;//centrar los iconos
+                font-size: 1.3rem;
+                width: 50%;
+                border-radius: .5rem;
+                overflow: hidden;//si algo se sobresale escondelo
+                @media only screen and (max-width:$bp-large){
+                    display: none;
+                }
+                input,
+                select{
+                    border: none;
+                    outline: 0;
+                    padding: 1.5rem 2rem 1.2rem 2rem;
+                    color: $color-secondary-light;
+                }
+                input{
+                    border-right: 1px solid rgb(black,.2);
+                    width: 70%;
+                }
+                select{
+                    appearance: none;//le quitamos su flechita
+                }
+                i{
+                    color: $color-secondary-light;
+
+                }
+            }
+            &__phone{
+                font-size: 1.6rem;
+                i{
+                    color: $color-primary;
+
+                }
+                span{
+                    color: white;
+                    margin-left: .5rem;
+                }
+            }
+        }
+    }
+}

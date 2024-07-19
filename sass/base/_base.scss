@@ -1,0 +1,51 @@
+$font-khula:'khula',sans-serif; 
+
+/*
+    tamaño de fuente base de 16px
+    1rem => 16px
+    1em => 16rem
+
+    div --> fz 15px
+        span --> 1em --> 15px
+
+    1200 / 16px => 75em     
+992px / 16px => 62em 
+768 / 16pz => 48em 
+576pz / 16px => 36em 
+420px / 16px => 26.25em 
+380px /16px => 23.75em
+
+*/
+
+$bp-extraLarge: 75em; 
+$bp-large:62em; 
+$bp-medium:48em; 
+$bp-small:36em; 
+$bp-extraSmall:26.25em; 
+$bp-extra:23.75em; 
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    //El tamaño fuente de base es de 16px
+    font-size: 62.5%; //lo cambiamos a la fuente base a 10px
+    font-family: $font-khula; 
+    // 10px=1rem
+    //ahora el tamaño fuente de base es de 10px==>1rem
+    @media only screen and (max-width:$bp-small){
+        font-size: 50%; // va ser de 8px la fuente de letra 
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+a,
+span{
+    display: inline-block;
+}

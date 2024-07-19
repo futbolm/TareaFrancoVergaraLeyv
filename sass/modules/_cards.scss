@@ -1,0 +1,43 @@
+.cards{
+    //border: 1px solid black;
+    
+    &__contenedor{
+        display: flex;
+        column-gap: 3rem; //la separacion de las tarjetas 
+        flex-wrap: wrap;
+        row-gap: 3rem;
+        &__item{
+            border: 2px solid #e5e5e5;
+            background-color: rgb(244, 244, 244);
+            width: calc(25% - 90px/4);
+            display: flex;
+            flex-direction: column;
+            align-items: center; //Cuando cambiamos el eje a columna para centrar sus elementos es align-items:center
+            padding: 3rem;
+            @media only screen and (max-width:$bp-large){
+                width: calc(50% - 1.5rem);
+            }
+            @media only screen and (max-width:$bp-small){
+                width: 100%; //va a ocupar todo el ancho las tarjetas
+            }
+            
+            i{
+                color:$color-primary;
+                font-size: 3rem;
+                
+            }
+            &--titulo{
+                font-size: 2rem;
+                text-transform: capitalize;
+                font-weight: 700;
+                color: $color-secondary;
+                margin-top: 2rem;
+            }
+            &--descri{
+                font-size: 1.4rem;
+                color: $color-secondary;
+                text-align: center;
+            }
+        }
+    }
+}
